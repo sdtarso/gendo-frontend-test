@@ -1,0 +1,53 @@
+@mixin grid {
+  display: grid;
+  gap: $default-size 0
+}
+
+@mixin grid-list {
+  @for $x from 1 to $columns {
+    .grid--#{$i}-columns {
+      @include grid;
+      grid-template-columns: repeat($i, 1fr);
+    }
+  }
+}
+
+@mixin center-text {
+
+  text-align: center;
+}
+
+@mixin reset-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin list-inline {
+
+  @include reset-list;
+
+  li {
+    display: inline-block;
+    margin: 0;
+
+    +li {
+      margin: {
+        left: 1rem
+      }
+    }
+  }
+}
+
+@mixin reset-button {
+  display: inline-block;
+  padding: $default-size * 0.75 $default-size * 1.25;
+  border-radius: $default-size * 0.25;
+  @include center-text
+}
+
+@mixin flex($jc: center, $ai: center) {
+  display: flex;
+  justify-content: $jc;
+  align-items: $ai;
+}

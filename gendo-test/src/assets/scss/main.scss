@@ -1,0 +1,40 @@
+@import './normalize';
+
+body {
+  font-family: $font-family;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.container {
+  width: 100%;
+  padding: 0 $default-size
+}
+
+.listinline {
+  
+  @include list-inline
+}
+
+.flexcenter {
+  @include flex
+}
+
+.btn {
+
+  @include reset-button;
+
+  &--primary {
+    background: $color-primary;
+    color: $color-white;
+  }
+
+  &--block {
+    display: block;
+    width: 100%;
+  }
+}
