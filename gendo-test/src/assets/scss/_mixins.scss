@@ -3,12 +3,10 @@
   gap: $default-size 0
 }
 
-@mixin grid-list {
-  @for $x from 1 to $columns {
-    .grid--#{$i}-columns {
-      @include grid;
-      grid-template-columns: repeat($i, 1fr);
-    }
+@for $i from 1 to $columns {
+  .grid--#{$i}-columns {
+    @include grid;
+    grid-template-columns: repeat($i, 1fr);
   }
 }
 
@@ -36,6 +34,50 @@
         left: 1rem
       }
     }
+  }
+}
+
+@each $i,
+$size in $sizes {
+
+  .pl-#{$i},
+  .px-#{$i} {
+    padding-left: $default-size * $size !important;
+  }
+
+  .pr-#{$i},
+  .px-#{$i} {
+    padding-right: $default-size * $size !important;
+  }
+
+  .ml-#{$i},
+  .mx-#{$i} {
+    margin-left: $default-size * $size !important;
+  }
+
+  .mr-#{$i},
+  .mx-#{$i} {
+    margin-right: $default-size * $size !important;
+  }
+
+  .pt-#{$i},
+  .py-#{$i} {
+    padding-top: $default-size * $size !important;
+  }
+
+  .pb-#{$i},
+  .py-#{$i} {
+    padding-bottom: $default-size * $size !important;
+  }
+
+  .mt-#{$i},
+  .my-#{$i} {
+    margin-top: $default-size * $size !important;
+  }
+
+  .mb-#{$i},
+  .my-#{$i} {
+    margin-bottom: $default-size * $size !important;
   }
 }
 

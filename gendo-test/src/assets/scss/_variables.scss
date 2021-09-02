@@ -1,16 +1,22 @@
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;800&display=swap');
-$font-family: 'Open sans', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap');
+$font-family: 'Open sans',
+sans-serif;
 
 // Colors
 $color-primary: #E36209;
 $color-white: #fff;
 $color-light: #E3E3E3;
+$color-dark: #24292f;
+$color-lightgrey: #666;
+$color-darkgrey: #5c646d;
 
 // Grid systems
 $columns: 12;
 
 // Sizes
-$sizes: 0.25, 0.5, 1, 2, 4;
+$sizes: 1 0.25,
+2 0.5,
+3 1,
+4 1.5,
+5 3;
 $default-size: 1rem !default;
-
