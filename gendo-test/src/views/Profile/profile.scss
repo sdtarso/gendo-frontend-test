@@ -78,47 +78,7 @@
     }
 }
 
-.searchcontainer {
-
-    margin-bottom: $default-size * 1.5;
-
-    input {
-
-        width: 100%;
-        border-radius: $default-size * 0.25;
-        border: 2px solid $color-light;
-        padding: $default-size * 0.5;
-        padding-left: calc(#{$default-size} + 24px);
-        background: url("~@/assets/imagens/icons/search_24dp.svg") $default-size*0.5 center/24px no-repeat;
-
-        &::placeholder {
-            color: $color-lightgrey;
-        }
-    }
-}
-
 .navpanel {
 
     padding-top: $default-size * 1.5;
-}
-
-.reposlist {
-    @include reset-list;
-
-    .reposlist__item {
-        .repoinfo {
-            font-size: $default-size * 1.5;
-            margin: 0 0 $default-size * 0.5;
-
-            a {
-                color: $color-blue;
-            }
-        }
-
-        .repodesc {
-            color: $color-lightgrey;
-            font-size: 85%;
-            margin: 0 0 $default-size;
-        }
-    }
 }

@@ -45,47 +45,19 @@
     </section>
     <section class="pagecontent">
       <div class="navpanel">
-        <div class="container">
-          <div class="searchcontainer">
-            <input
-              type="text"
-              class="searchcontainer__input"
-              placeholder="Filter by name"
-            />
-          </div>
-          <div class="reposlistcontainer">
-            <ul class="reposlist">
-              <li
-                v-for="repo in repositories"
-                :key="repo.uuid"
-                class="reposlist__item"
-              >
-                <h3 class="repoinfo">
-                  <a href="#" class="repoinfo__owner" v-text="repo.owner"></a> 
-                  <a href="#" class="repoinfo__title" v-text="repo.title"></a>
-                </h3>
-                <p class="repodesc" v-text="repo.description"></p>
-                <div class="repodata">
-                  <badge icon="code" :label="repo.mainLanguage" />
-                  <badge icon="star" :label="repo.starCount" />
-                  <badge icon="fork" :label="repo.forkCount" />
-                </div>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <repositories-list :repositories="repositories" />
       </div>
     </section>
   </main>
 </template>
 
 <script>
-import Badge from "../../components/Badge/Badge";
+import RepositoriesList from "../../components/RepoList/List";
 
 export default {
   name: "Profile",
   components: {
-    Badge
+    RepositoriesList,
   },
   data() {
     return {
