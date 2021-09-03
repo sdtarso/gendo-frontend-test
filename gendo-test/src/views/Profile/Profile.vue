@@ -12,36 +12,38 @@
           </router-link>
         </div>
       </nav>
-      <div class="bio">
+      <div class="bio mb-4">
         <div class="container">
           <div class="bio__profilepicture">
             <img :src="user.profilePicture" class="imgfluid" />
           </div>
           <div class="bio__resume">
-            <h2 class="maintitle mb-1" v-text="user.name"></h2>
-            <p class="textmuted" v-text="user.bio"></p>
+            <h2 class="username mb-1" v-text="user.name"></h2>
+            <p class="small textmuted m-0" v-text="user.bio"></p>
           </div>
         </div>
       </div>
       <div class="navtabs">
         <ul class="listinline">
           <li class="listinline__item">
-            <router-link to="/">
+            <router-link to="/profile">
               Repos
-              <span
+              <small
                 class="item__count"
                 v-text="repositories.length - staredRepos.length"
-              ></span>
+              ></small>
             </router-link>
           </li>
-          <li class="listinline__item">
+          <li class="listinline__item ml-0">
             <router-link to="/stared">
               Stared
-              <span class="item__count" v-text="staredRepos.length"></span>
+              <small class="item__count" v-text="staredRepos.length"></small>
             </router-link>
           </li>
         </ul>
       </div>
+    </section>
+    <section class="pagecontent">
       <div class="navpanel">
         <div class="container">
           <div class="searchcontainer">
@@ -58,8 +60,11 @@
                 :key="repo.uuid"
                 class="reposlist__item"
               >
-                <h3 class="repotitle" v-text="repo.title"></h3>
-                <p class="small textmuted" v-text="repo.description"></p>
+                <h3 class="repoinfo">
+                  <a href="#" class="repoinfo__owner" v-text="repo.owner"></a> 
+                  <a href="#" class="repoinfo__title" v-text="repo.title"></a>
+                </h3>
+                <p class="repodesc" v-text="repo.description"></p>
                 <div class="repodata">
                   <div class="badge">
                     <div class="badge__icon">
@@ -95,12 +100,27 @@ export default {
       },
       repositories: [
         {
+          title: "Gendo",
+          owner: "sdtarso",
+          description: "Gendo",
+          icon: "Gendo",
+          mainLanguage: "Gendo",
           stared: false,
         },
         {
+          title: "Gendo",
+          owner: "sdtarso",
+          description: "Gendo",
+          icon: "Gendo",
+          mainLanguage: "Gendo",
           stared: false,
         },
         {
+          title: "Gendo",
+          owner: "sdtarso",
+          description: "Gendo",
+          icon: "Gendo",
+          mainLanguage: "Gendo",
           stared: true,
         },
       ],

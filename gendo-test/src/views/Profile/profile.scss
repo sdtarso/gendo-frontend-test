@@ -1,0 +1,124 @@
+.bio {
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        gap: $default-size;
+        padding-top: $default-size;
+    }
+
+    .bio__profilepicture {
+        img {
+            border-radius: 100%;
+        }
+    }
+
+    .bio__resume {
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .username {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: $color-dark;
+            margin: 0;
+        }
+    }
+}
+
+.navtabs {
+
+    border-bottom: 2px solid $color-light;
+
+    ul.listinline {
+        display: flex;
+        justify-content: space-between;
+
+        li.listinline__item {
+            flex-grow: 1;
+            flex-basis: 0;
+            padding: $default-size * 0.5 0 calc((#{$default-size} * 0.5) + 3px);
+            position: relative;
+            @include center-text;
+
+            a {
+
+                color: $color-lightgrey;
+
+                &:after {
+                    content: '';
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    bottom: -2px;
+                    height: 5px;
+                }
+
+                &.router-link-active {
+
+                    color: $color-dark;
+                    font-weight: bold;
+
+                    &:after {
+                        background: $color-primary;
+                    }
+                }
+            }
+
+            .item__count {
+
+                color: $color-dark;
+                background: $color-light;
+                padding: 0 $default-size * 0.5;
+                border-radius: $default-size;
+            }
+        }
+    }
+}
+
+.searchcontainer {
+
+    margin-bottom: $default-size * 1.5;
+
+    input {
+
+        width: 100%;
+        border-radius: $default-size * 0.25;
+        border: 2px solid $color-light;
+        padding: $default-size * 0.5;
+        padding-left: calc(#{$default-size} + 24px);
+        background: url("~@/assets/imagens/icons/search_24dp.svg") $default-size*0.5 center/24px no-repeat;
+
+        &::placeholder {
+            color: $color-lightgrey;
+        }
+    }
+}
+
+.navpanel {
+
+    padding-top: $default-size * 1.5;
+}
+
+.reposlist {
+    @include reset-list;
+
+    .reposlist__item {
+        .repoinfo {
+            font-size: $default-size * 1.5;
+            margin: 0 0 $default-size * 0.5;
+
+            a {
+                color: $color-blue;
+            }
+        }
+
+        .repodesc {
+            color: $color-lightgrey;
+            font-size: 85%;
+            margin: 0 0 $default-size;
+        }
+    }
+}
