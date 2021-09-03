@@ -66,18 +66,9 @@
                 </h3>
                 <p class="repodesc" v-text="repo.description"></p>
                 <div class="repodata">
-                  <div class="badge">
-                    <div class="badge__icon">
-                      <span class="material-icons" v-text="repo.icon"></span>
-                    </div>
-                    <div class="badge__text" v-text="repo.mainLanguage"></div>
-                  </div>
-                  <div class="badge">
-                    <div class="badge__icon">
-                      <span class="material-icons" v-text="repo.icon"></span>
-                    </div>
-                    <div class="badge__text" v-text="repo.mainLanguage"></div>
-                  </div>
+                  <badge icon="code" :label="repo.mainLanguage" />
+                  <badge icon="star" :label="repo.starCount" />
+                  <badge icon="fork" :label="repo.forkCount" />
                 </div>
               </li>
             </ul>
@@ -89,8 +80,13 @@
 </template>
 
 <script>
+import Badge from "../../components/Badge/Badge";
+
 export default {
   name: "Profile",
+  components: {
+    Badge
+  },
   data() {
     return {
       user: {
@@ -104,7 +100,9 @@ export default {
           owner: "sdtarso",
           description: "Gendo",
           icon: "Gendo",
-          mainLanguage: "Gendo",
+          mainLanguage: "java escripto",
+          starCount: 666,
+          forkCount: 666,
           stared: false,
         },
         {
@@ -112,7 +110,9 @@ export default {
           owner: "sdtarso",
           description: "Gendo",
           icon: "Gendo",
-          mainLanguage: "Gendo",
+          mainLanguage: "java escripto",
+          starCount: 666,
+          forkCount: 666,
           stared: false,
         },
         {
@@ -120,7 +120,9 @@ export default {
           owner: "sdtarso",
           description: "Gendo",
           icon: "Gendo",
-          mainLanguage: "Gendo",
+          mainLanguage: "java escripto",
+          starCount: 666,
+          forkCount: 666,
           stared: true,
         },
       ],

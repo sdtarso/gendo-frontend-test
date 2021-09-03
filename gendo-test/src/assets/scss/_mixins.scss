@@ -40,41 +40,49 @@
 @each $i,
 $size in $sizes {
 
+  .p-#{$i},
   .pl-#{$i},
   .px-#{$i} {
     padding-left: $default-size * $size !important;
   }
 
+  .p-#{$i},
   .pr-#{$i},
   .px-#{$i} {
     padding-right: $default-size * $size !important;
   }
 
+  .m-#{$i},
   .ml-#{$i},
   .mx-#{$i} {
     margin-left: $default-size * $size !important;
   }
 
+  .m-#{$i},
   .mr-#{$i},
   .mx-#{$i} {
     margin-right: $default-size * $size !important;
   }
 
+  .p-#{$i},
   .pt-#{$i},
   .py-#{$i} {
     padding-top: $default-size * $size !important;
   }
 
+  .p-#{$i},
   .pb-#{$i},
   .py-#{$i} {
     padding-bottom: $default-size * $size !important;
   }
 
+  .m-#{$i},
   .mt-#{$i},
   .my-#{$i} {
     margin-top: $default-size * $size !important;
   }
 
+  .m-#{$i},
   .mb-#{$i},
   .my-#{$i} {
     margin-bottom: $default-size * $size !important;

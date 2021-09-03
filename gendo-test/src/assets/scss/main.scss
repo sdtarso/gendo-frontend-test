@@ -21,14 +21,12 @@ a {
   max-width: 100%
 }
 
-.textmuted {
-  color: $color-lightgrey
+.small {
+  font-size: 85%;
 }
 
-.maintitle {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: $color-dark
+.textmuted {
+  color: $color-lightgrey
 }
 
 .grid {
