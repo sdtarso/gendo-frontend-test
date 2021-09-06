@@ -16,6 +16,7 @@ export default {
         .get(`http://localhost:8081/authenticate/${code}`)
         .then((response) => {
           localStorage.setItem("GH_TOKEN", response.data.token);
+          this.$router.push("/");
         })
         .catch(() => {
           this.$swal
@@ -25,13 +26,13 @@ export default {
               "error"
             )
             .then(() => {
-              this.$router.push("login");
+              this.$router.push("/login");
             });
         });
     },
   },
   mounted() {
-    // this.requestToken();
+    this.requestToken();
   },
 };
 </script>

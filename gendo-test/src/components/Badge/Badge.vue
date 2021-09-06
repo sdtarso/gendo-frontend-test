@@ -13,7 +13,7 @@
 export default {
   name: "Badge",
   props: {
-    icon: String,
+    icon: String || Number,
     label: String || Number,
   },
   computed: {

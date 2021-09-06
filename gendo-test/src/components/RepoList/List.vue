@@ -3,7 +3,7 @@
     <search-box />
     <div class="reposlistcontainer">
       <ul class="reposlist">
-        <item v-for="repo in repositories" :key="repo.uuid" :repo="repo" />
+        <item v-for="repo in repositories" :key="repo.id" :repo="repo" />
       </ul>
     </div>
   </div>

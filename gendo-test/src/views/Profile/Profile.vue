@@ -15,7 +15,7 @@
       <div class="bio mb-4">
         <div class="container">
           <div class="bio__profilepicture">
-            <img :src="user.profilePicture" class="imgfluid" />
+            <img :src="user.avatar_url" class="imgfluid" />
           </div>
           <div class="bio__resume">
             <h2 class="username mb-1" v-text="user.name"></h2>
@@ -26,7 +26,7 @@
       <div class="navtabs">
         <ul class="listinline">
           <li class="listinline__item">
-            <router-link to="/profile">
+            <router-link to="/">
               Repos
               <small
                 class="item__count"
@@ -61,49 +61,30 @@ export default {
   },
   data() {
     return {
-      user: {
-        name: "Saulo Araújo",
-        bio: "Front end Developer",
-        profilePicture: "https://www.dtarso.com.br/imagens/profile.jpg",
-      },
-      repositories: [
-        {
-          title: "Gendo",
-          owner: "sdtarso",
-          description: "Gendo",
-          icon: "Gendo",
-          mainLanguage: "java escripto",
-          starCount: 666,
-          forkCount: 666,
-          stared: false,
-        },
-        {
-          title: "Gendo",
-          owner: "sdtarso",
-          description: "Gendo",
-          icon: "Gendo",
-          mainLanguage: "java escripto",
-          starCount: 666,
-          forkCount: 666,
-          stared: false,
-        },
-        {
-          title: "Gendo",
-          owner: "sdtarso",
-          description: "Gendo",
-          icon: "Gendo",
-          mainLanguage: "java escripto",
-          starCount: 666,
-          forkCount: 666,
-          stared: true,
-        },
-      ],
+      user: {},
+      repositories: [],
     };
   },
   computed: {
     staredRepos() {
       return this.repositories.filter((r) => r.stared);
     },
+  },
+  methods: {
+    getUserInfo() {
+      this.axios.get("https://api.github.com/user").then((response) => {
+        this.user = response.data;
+      });
+    },
+    getUserRepos() {
+      this.axios.get("https://api.github.com/user/repos").then((response) => {
+        this.repositories = response.data;
+      });
+    },
+  },
+  beforeMount() {
+    this.getUserInfo();
+    this.getUserRepos();
   },
 };
 </script>

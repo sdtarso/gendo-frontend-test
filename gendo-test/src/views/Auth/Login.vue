@@ -4,7 +4,6 @@
       <button
         @click="requestLogin"
         class="btn btn--block btn--primary"
-        to="profile"
       >
         LOGIN
       </button>

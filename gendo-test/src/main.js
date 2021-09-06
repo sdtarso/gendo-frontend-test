@@ -10,7 +10,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 
 
-axios.defaults.withCredentials = true;
+axios.defaults.withCredentials = false;
 if (localStorage.getItem('GH_TOKEN') !== null) {
   axios.defaults.headers.common['Authorization'] = `token ${localStorage.getItem('GH_TOKEN')}`;
 }
