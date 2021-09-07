@@ -26,49 +26,33 @@
       <div class="navtabs">
         <ul class="listinline">
           <li class="listinline__item">
-            <router-link to="/">
+            <router-link to="repositories">
               Repos
-              <small
-                class="item__count"
-                v-text="repositories.length - staredRepos.length"
-              ></small>
+              <small class="item__count" v-text="repoCount"></small>
             </router-link>
           </li>
           <li class="listinline__item ml-0">
-            <router-link to="/stared">
-              Stared
-              <small class="item__count" v-text="staredRepos.length"></small>
+            <router-link to="starred">
+              Starred
+              <small class="item__count" v-text="starredCount"></small>
             </router-link>
           </li>
         </ul>
       </div>
     </section>
-    <section class="pagecontent">
-      <div class="navpanel">
-        <repositories-list :repositories="repositories" />
-      </div>
-    </section>
+    <router-view @listLoaded="updateTabCount" />
   </main>
 </template>
 
 <script>
-import RepositoriesList from "../../components/RepoList/List";
-
 export default {
   name: "Profile",
-  components: {
-    RepositoriesList,
-  },
   data() {
     return {
       user: {},
-      repositories: [],
+      repoCount: 0,
+      starredCount: 0,
     };
-  },
-  computed: {
-    staredRepos() {
-      return this.repositories.filter((r) => r.stared);
-    },
   },
   methods: {
     getUserInfo() {
@@ -76,15 +60,12 @@ export default {
         this.user = response.data;
       });
     },
-    getUserRepos() {
-      this.axios.get("https://api.github.com/user/repos").then((response) => {
-        this.repositories = response.data;
-      });
+    updateTabCount($event) {
+      this[$event.tab] = $event.count;
     },
   },
   beforeMount() {
     this.getUserInfo();
-    this.getUserRepos();
   },
 };
 </script>
