@@ -13,8 +13,8 @@
 export default {
   name: "Badge",
   props: {
-    icon: String || Number,
-    label: String || Number,
+    icon: [String, Number],
+    label: [String, Number],
   },
   computed: {
     iconSvg() {
