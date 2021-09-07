@@ -1,28 +1,30 @@
 <template>
   <main>
-    <section class="header">
-      <nav>
-        <div class="container py-2">
-          <router-link to="/">
-            <img
-              src="@/assets/imagens/github-profiles.png"
-              alt="GitHub Profiles"
-              width="210"
-            />
-          </router-link>
-        </div>
-      </nav>
-      <div class="bio mb-4">
-        <div class="container">
-          <div class="bio__profilepicture">
-            <img :src="user.avatar_url" class="imgfluid" />
-          </div>
-          <div class="bio__resume">
-            <h2 class="username mb-1" v-text="user.name"></h2>
-            <p class="small textmuted m-0" v-text="user.bio"></p>
-          </div>
-        </div>
+    <nav>
+      <div class="container py-2">
+        <router-link to="/">
+          <img
+            src="@/assets/imagens/github-profiles.png"
+            alt="GitHub Profiles"
+            width="210"
+          />
+        </router-link>
       </div>
+    </nav>
+    <section class="maincontent">
+      <section class="header">
+        <div class="bio mb-4">
+          <div class="container">
+            <div class="bio__profilepicture">
+              <img :src="user.avatar_url" class="imgfluid" />
+            </div>
+            <div class="bio__resume">
+              <h2 class="username mb-1" v-text="user.name"></h2>
+              <p class="small textmuted m-0" v-text="user.bio"></p>
+            </div>
+          </div>
+        </div>
+      </section>
       <div class="navtabs">
         <ul class="listinline">
           <li class="listinline__item">
@@ -39,8 +41,8 @@
           </li>
         </ul>
       </div>
+      <router-view @listLoaded="updateTabCount" />
     </section>
-    <router-view @listLoaded="updateTabCount" />
   </main>
 </template>
 

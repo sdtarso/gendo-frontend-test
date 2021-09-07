@@ -1,0 +1,71 @@
+// Adding superselect to override page styles
+main {
+
+    /* tablet, landscape iPad, lo-res laptops ands desktops */
+    @media (min-width: $tablet-width-treshold) {
+        .bio {
+            .container {
+                grid-template-columns: auto 1fr;
+            }
+
+            .bio__profilepicture {
+                img {
+                    max-height: 80px;
+                }
+            }
+        }
+
+        .navtabs {
+
+            ul.listinline {
+                justify-content: flex-start;
+
+                li.listinline__item {
+                    flex-grow: 0;
+                    flex-basis: auto;
+                    padding-left: 2rem;
+                    padding-right: 2rem;
+                }
+            }
+        }
+
+        .searchcontainer {
+            input {
+                width: auto;
+            }
+        }
+    }
+
+    /* laptops and desktops */
+    @media (min-width:$pc-width-treshold) {
+
+
+        .maincontent {
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            gap: 2rem;
+            grid-template-rows: calc(2rem + 40px) 1fr;
+
+            .pagecontent {
+                grid-column: 2;
+            }
+        }
+
+        .bio {
+            .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .bio__profilepicture {
+                img {
+                    max-height: unset;
+                }
+            }
+        }
+
+        .navtabs {
+            padding-top: 2rem;
+        }
+    }
+}
