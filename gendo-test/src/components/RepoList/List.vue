@@ -1,9 +1,16 @@
 <template>
   <div class="container">
-    <search-box />
+    <div class="searchcontainer">
+      <input
+        v-model="search"
+        type="text"
+        class="searchcontainer__input"
+        placeholder="Filter by name"
+      />
+    </div>
     <div class="reposlistcontainer">
       <ul class="reposlist">
-        <item v-for="repo in repositories" :key="repo.id" :repo="repo" />
+        <item v-for="repo in filteredList" :key="repo.id" :repo="repo" />
       </ul>
     </div>
   </div>
@@ -13,16 +20,33 @@
 
 <script>
 import Item from "./Item";
-import SearchBox from "./SearchBox";
 
 export default {
   name: "RepositoriesList",
   components: {
     Item,
-    SearchBox,
   },
   props: {
     repositories: Array,
+  },
+  data() {
+    return {
+      search: "",
+    };
+  },
+  computed: {
+    filteredList() {
+      const vm = this;
+      return this.repositories.filter((r) => {
+        return (
+          r.name.toLocaleLowerCase().includes(vm.search.toLocaleLowerCase()) ||
+          (!!r.description &&
+            r.description
+              .toLocaleLowerCase()
+              .includes(vm.search.toLocaleLowerCase()))
+        );
+      });
+    },
   },
 };
 </script>
